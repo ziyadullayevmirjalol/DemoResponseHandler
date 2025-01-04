@@ -19,7 +19,7 @@ type CommitResponse struct {
 type Record struct {
 	Status  string               `json:"status"`
 	Index   int                  `json:"index"`
-	RecordId *int                `json:"record_id,omitempty"`
+	RecordId *string                `json:"record_id,omitempty"`
 	Errors  map[string][]string  `json:"errors"`
 }
 
@@ -50,7 +50,7 @@ func commitHandler(w http.ResponseWriter, r *http.Request) {
 			{
 				Status:  "ok",
 				Index:   6666666,
-				RecordId: &[]int{999}[0],
+				RecordId: "something",
 				Errors:  map[string][]string{},
 			},
 			{
