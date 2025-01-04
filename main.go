@@ -9,7 +9,7 @@ import (
 )
 
 type CommitResponse struct {
-	RequestId int     `json:"request_id"`
+	RequestId string     `json:"request_id"`
 	Count     int     `json:"count"`
 	Success   int     `json:"success"`
 	Fail      int     `json:"fail"`
@@ -42,7 +42,7 @@ func commitHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Prepare the response body
 	responseBody := CommitResponse{
-		RequestId: 999,
+		RequestId: "9asdasdasdasd99",
 		Count:     2,
 		Success:   0,
 		Fail:      2,
