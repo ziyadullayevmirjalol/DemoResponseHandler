@@ -19,7 +19,7 @@ type CommitResponse struct {
 type Record struct {
 	Status  string               `json:"status"`
 	Index   int                  `json:"index"`
-	RecordId *string                `json:"record_id,omitempty"`
+	RecordId string                `json:"record_id"`
 	Errors  map[string][]string  `json:"errors"`
 }
 
