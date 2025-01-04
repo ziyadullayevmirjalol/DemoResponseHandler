@@ -43,19 +43,19 @@ func commitHandler(w http.ResponseWriter, r *http.Request) {
 	// Prepare the response body
 	responseBody := CommitResponse{
 		RequestId: "66666666666666666666666",
-		Count:     6666666666666,
-		Success:   6666666666666,
-		Fail:      6666666666666,
+		Count:     6666666,
+		Success:   6666666,
+		Fail:      6666666,
 		Records: []Record{
 			{
 				Status:  "ok",
-				Index:   666666666666,
+				Index:   6666666,
 				RecordId: &[]int{999}[0],
 				Errors:  map[string][]string{},
 			},
 			{
 				Status: "error",
-				Index:  666666662222,
+				Index:  6666666,
 				Errors: map[string][]string{
 					"PARENT":   {"Необходимо заполнить «PARENT»."},
 					"MERCHANT": {"Значение «XXXXXXXX» для «MERCHANT» уже занято."},
