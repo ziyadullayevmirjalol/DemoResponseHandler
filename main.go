@@ -29,18 +29,15 @@ func commitHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Read request body
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		http.Error(w, "Failed to read request body", http.StatusInternalServerError)
 		return
 	}
 
-	// Log the request body
 	fmt.Printf("Request received: %s %s\n", r.Method, r.URL)
 	fmt.Printf("Request Body: %s\n", string(body))
 
-	// Prepare the response body
 	responseBody := CommitResponse{
 		RequestId: "66666666666666666666666",
 		Count:     6666666,
@@ -64,25 +61,21 @@ func commitHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	// Serialize response to JSON
 	jsonResponse, err := json.Marshal(responseBody)
 	if err != nil {
 		http.Error(w, "Failed to serialize response", http.StatusInternalServerError)
 		return
 	}
 
-	// Set response headers and content type
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
-	// Write the response
 	w.Write(jsonResponse)
 }
 
 func main() {
 	http.HandleFunc("/", commitHandler)
 
-	// Start the server
 	fmt.Println("Listening on http://localhost:8080/")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatalf("Error starting server: %s", err)
